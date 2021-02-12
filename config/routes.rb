@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   get "/channels", to: "channels#index"
+  get "/channels/:id", to: "channels#show"
 
   post "/signup", to: "users#signup"
   post "/login", to: "users#login"
