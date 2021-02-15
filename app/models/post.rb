@@ -10,8 +10,8 @@ class Post < ApplicationRecord
         self.user.username
     end
 
-    def channel_name
-        self.channel.name
+    def channel_info
+        {"channel_name": self.channel.name, "channel_img": self.channel.image_url}
     end
     
 end

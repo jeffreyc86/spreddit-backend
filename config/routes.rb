@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "/likes", to: "likes#create"
   delete "/likes/:id", to: "likes#destroy"
 
+  get "/posts/:id", to: "posts#show"
   post "/posts", to: "posts#create"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

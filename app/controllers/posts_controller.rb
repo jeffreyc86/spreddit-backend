@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
 
+    def show
+        @post = Post.find(params[:id])
+        render json: @post
+    end
+
     def create
         image = Cloudinary::Uploader.upload(params[:image])
         @post = Post.create(
