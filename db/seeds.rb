@@ -1,7 +1,7 @@
 
 User.create(
-    username: "test",
-    password: "test"
+    username: "test123",
+    password: "test1234"
 )
 
 puts "Users seeded 🧟‍♂️🧟‍♀️"
