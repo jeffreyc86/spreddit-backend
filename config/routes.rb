@@ -13,5 +13,9 @@ Rails.application.routes.draw do
 
   get "/posts/:id", to: "posts#show"
   post "/posts", to: "posts#create"
+
+  post "/comments", to: "comments#create"
+  patch "/comments/:id", to: "comments#update"
+  delete "/comments/:id", to: "comments#destroy"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
