@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post "/login", to: "users#login"
   get "/show", to: "users#show"
 
+  get "users/:id", to: "users#show_id"
+
 
   post "/likes", to: "likes#create"
   delete "/likes/:id", to: "likes#destroy"

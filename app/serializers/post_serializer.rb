@@ -1,7 +1,12 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :channel_id, :title, :content, :image_url, :anonymous, :author, :channel_info
+  attributes :id, :user_id, :channel_id, :title, :content, :image_url, :anonymous, :author, :channel_info, :comments
 
-  has_many :comments
+  def comments
+    self.object.comments.order(:id).map do |comment| 
+      {id: comment.id, user_id: comment.user_id, post_id: comment.post_id, anonymous: comment.anonymous, comment: comment.comment, author: comment.author}
+    end
+  end
+
   has_many :likes
   
 end

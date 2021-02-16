@@ -27,5 +27,9 @@ class UsersController < ApplicationController
         render json: @currentuser
     end
 
+    def show_id
+        @user = User.find(params[:id])
+        render json: @user
+    end
     
 end
