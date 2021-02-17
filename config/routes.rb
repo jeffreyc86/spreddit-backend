@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   post "/signup", to: "users#signup"
   post "/login", to: "users#login"
   get "/show", to: "users#show"
-
+  patch "/users/:id", to: "users#update"
+  delete "/users/:id", to: "users#destroy"
   get "users/:id", to: "users#show_id"
 
 

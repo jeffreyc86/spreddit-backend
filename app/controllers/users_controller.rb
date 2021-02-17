@@ -31,5 +31,20 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         render json: @user
     end
+
+    def update
+        @user = User.find(params[:id])
+        @user.update(params.permit(:username, :password))
+            if @user.valid?
+                render json: @user
+            else
+                render json: {errors: @user.errors.full_messages}
+            end
+    end
+    
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+    end
     
 end
