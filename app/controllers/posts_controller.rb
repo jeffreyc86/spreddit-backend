@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
 
+    def index
+        @posts = Post.all
+        render json: @posts
+    end
+
     def show
         @post = Post.find(params[:id])
         render json: @post
@@ -15,6 +20,11 @@ class PostsController < ApplicationController
             image_url: image["url"], 
             anonymous: params[:anonymous])
         render json: @post
+    end
+
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
     end
 
 end

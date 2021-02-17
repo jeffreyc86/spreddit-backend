@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   post "/likes", to: "likes#create"
   delete "/likes/:id", to: "likes#destroy"
 
+  get "/posts", to: "posts#index"
   get "/posts/:id", to: "posts#show"
   post "/posts", to: "posts#create"
+  delete "/posts/:id", to: "posts#destroy"
 
   post "/comments", to: "comments#create"
   patch "/comments/:id", to: "comments#update"

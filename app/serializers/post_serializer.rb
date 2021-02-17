@@ -3,7 +3,7 @@ class PostSerializer < ActiveModel::Serializer
 
   def comments
     self.object.comments.order(:id).map do |comment| 
-      {id: comment.id, user_id: comment.user_id, post_id: comment.post_id, anonymous: comment.anonymous, comment: comment.comment, author: comment.author}
+      {id: comment.id, user_id: comment.user_id, post_id: comment.post_id, anonymous: comment.anonymous, comment: comment.comment, author: comment.author, created_today: comment.created_today}
     end
   end
 
