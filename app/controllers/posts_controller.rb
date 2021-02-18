@@ -11,15 +11,47 @@ class PostsController < ApplicationController
     end
 
     def create
-        image = Cloudinary::Uploader.upload(params[:image])
-        @post = Post.create(
-            user_id: params[:user_id], 
-            channel_id: params[:channel_id], 
-            title: params[:title], 
-            content: params[:content], 
-            image_url: image["url"], 
-            anonymous: params[:anonymous])
-        render json: @post
+        if params[:image]
+            image = Cloudinary::Uploader.upload(params[:image])
+            @post = Post.create(
+                user_id: params[:user_id], 
+                channel_id: params[:channel_id], 
+                title: params[:title], 
+                content: params[:content], 
+                image_url: image["url"], 
+                anonymous: params[:anonymous])
+            render json: @post
+        else 
+            @post = Post.create(
+                user_id: params[:user_id], 
+                channel_id: params[:channel_id], 
+                title: params[:title], 
+                content: params[:content], 
+                image_url: "", 
+                anonymous: params[:anonymous])
+            render json: @post
+        end
+    end
+
+    def update
+        @post = Post.find(params[:id])
+        if params[:image] 
+            image = Cloudinary::Uploader.upload(params[:image])
+            @post.update(
+                channel_id: params[:channel_id], 
+                title: params[:title], 
+                content: params[:content], 
+                image_url: image["url"], 
+                anonymous: params[:anonymous])
+            render json: @post
+        else 
+            @post.update(
+                channel_id: params[:channel_id], 
+                title: params[:title], 
+                content: params[:content], 
+                anonymous: params[:anonymous])
+            render json: @post
+        end
     end
 
     def destroy

@@ -4,6 +4,11 @@ User.create(
     password: "test1234"
 )
 
+25.times do
+    User.create(username: Faker::Twitter.unique.screen_name, password: "test1234")
+end
+
+
 puts "Users seeded 🧟‍♂️🧟‍♀️"
 
 Channel.create(
