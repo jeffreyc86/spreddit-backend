@@ -1,24 +1,21 @@
-# README
+# Spreddit - Server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Back end for [Spreddit](https://github.com/jeffreyc86/spreddit-demo), a web content and discussion application focused around pandemic related topics. Built with a `React` front end, a `Ruby on Rails` & `PostgreSQL` back end, and all custom CSS.
 
-Things you may want to cover:
+[Live Link](https://spreddit.netlify.app/) / [Demo](https://www.loom.com/share/ee4777543eb6430098f9f0990072d761)
 
-* Ruby version
+[Front End](https://github.com/jeffreyc86/spreddit-frontend)
 
-* System dependencies
+To start the server:
 
-* Configuration
+```bash
+bundle install
+```
 
-* Database creation
+```bash
+rails db:create && rails db:migrate
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+rails s
+```
